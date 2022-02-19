@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@600&family=Syne+Tactile&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne+Tactile&display=swap" rel="stylesheet">
+    <title>https://www.energy efficiency  </title>
+
+</head>
+<body onload="slider()">
+<!-- Slideshow container -->
+    <div class="banner">
+        <form action="{{ url_for('predict')}}" method="post">
+            <!-- Full-width images with number and caption text -->
+            <div class="slider">
+                <img src="https://images.pexels.com/photos/3361235/pexels-photo-3361235.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" id="slideimg">
+            </div>
+            <div class="overlay" >
+
+                <div class="banner-text">
+                    <h2>ENERGY EFFICIENCY</h2>
+                </div>
+                <div class="container">
+                    <div class="row">
+
+                        <h3>Relative Compactness</h3>
+                        <input id="Relative_Compactness" name="Relative_Compactness" type="number ">
+                        <p> <br> </p>
+                        <h3>Surface Area </h3>
+                        <input id="Surface_Area" name="Surface_Area" type="number ">
+                        <p> <br> </p>
+                        <h3>Wall Area</h3>
+                        <input id="Wall_Area" name="Wall_Area" type="number ">
+                        <p> <br> </p>
+                        <h3>Roof Area</h3>
+                        <input id="Roof_Area" name="Roof_Area" type="number ">
+                    </div>
+
+                    <div class="row">
+                        <h3>Overall Height</h3>
+                        <input id="Overall_Height" name="Overall_Height" type="number ">
+                        <p> <br> </p>
+                        <h3>Orientation</h3>
+                        <input id="Orientation" name="Orientation" type="number ">
+                        <p> <br> </p>
+                        <h3>Glazing Area</h3>
+                        <input id="Glazing_Area" name="Glazing_Area" type="number ">
+                        <p> <br> </p>
+                        <h3>Glazing Area Distribution</h3>
+                        <input id="Glazing_Area_Distribution" name="Glazing_Area_Distribution" type="number ">
+                    </div>
+                </div>
+                <div class = "button">
+                    <button type="submit" class="btn">PREDICT</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+</body>
+
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+
+    .banner{
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .slider{
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+    }
+
+    #slideimg{
+        bground-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+
+    .overlay{
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+
+
+
+    }
+
+    .container {
+        display: table;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 50px;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        font-family: 'Recursive', sans-serif;
+
+
+    }
+
+    .row {
+        display: table-cell;
+
+    }
+
+     .banner-text {
+         text-align: center;
+         font-family: 'Syne Tactile', cursive;
+         font-size: 30px;
+         color: white;
+         margin-top: 50px;
+     }
+
+     .button {
+         position: relative;
+         text-align: center;
+         width: 200px;
+         padding: 11px;
+         color: #15f4ee;
+         border: 5px solid #15f4ee;
+         font-family: poppins;
+         font-weight: 400;
+         border-radius:100px;
+         transition: 1.5s;
+         background-color: transparent;
+         margin-left: auto;
+         margin-right: auto;
+
+     }
+
+    .button:hover{
+        box-shadow: 0 5px 50px 0 #15f4ee inset, 0 5px 50px 0 #15f4ee, 0 5px 50px 0 #15f4ee inset, 0 5px 50px 0 #15f4ee;
+        text-shadow: 0 0 5px #15f4ee, 0 0 5px #15f4ee;
+    }
+    .btn{
+        background-color: transparent;
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        border: none;
+        font-size: 20px;
+        color:#15f4ee;
+
+
+
+    }
+
+    #Relative_Compactness{
+        border-radius:14px;
+        width: 130px;
+        height: 40px;
+    }
+    #Surface_Area{
+        border-radius:14px;
+        width: 130px;
+        height: 40px;
+    }
+    #Wall_Area{
+        border-radius:14px;
+        width: 130px;
+        height: 40px;
+    }
+    #Roof_Area{
+        border-radius:14px;
+        width: 130px;
+        height: 40px;
+    }
+    #Overall_Height{
+        border-radius:14px;
+        width: 130px;
+        height: 40px;
+    }
+    #Orientation{
+        border-radius:14px;
+        width: 130px;
+        height: 40px;
+    }
+    #Glazing_Area{
+        border-radius:14px;
+        width: 130px;
+        height: 40px;
+    }
+    #Glazing_Area_Distribution{
+        border-radius:14px;
+        width: 130px;
+        height: 40px;
+    }
+
+</style>
+<script>
+    var slideimg = document.getElementById("slideimg");
+
+    var images = new Array(
+        "https://images.pexels.com/photos/3361235/pexels-photo-3361235.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940\" id=\"slideimg",
+        "https://images.pexels.com/photos/2880872/pexels-photo-2880872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "https://images.pexels.com/photos/4394351/pexels-photo-4394351.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "https://images.pexels.com/photos/1570099/pexels-photo-1570099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    );
+
+    var len = images.length;
+    var i = 0;
+    function slider () {
+        if ( i > len-1) {
+            i = 0;
+        }
+        slideimg.src = images[i];
+        i++;
+        setTimeout("slider()",3000)
+    }
+
+
+
+
+</script>
+</body>
+</html>
